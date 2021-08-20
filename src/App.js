@@ -7,6 +7,7 @@ import TodoList from './components/TodoList/index';
 import TodoForm from './components/TodoForm/index';
 import PostList from './components/PostList/index';
 import Pagination from './components/Pagination/index';
+import PostFiltersForm from './components/PostFiltersForm/index';
 
 function App() {
   // const [todoList, setTodoList] = useState(
@@ -57,6 +58,15 @@ function App() {
     });
   };
 
+  const handleFiltersChange = (newFilters) => {
+    // console.log('New Filters: ', newFilters);
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm,
+    });
+  };
+
   // function handleTodoList(todo) {
   //   // console.log(todo);
   //   const index = todoList.findIndex(x => x.id === todo.id);
@@ -97,7 +107,8 @@ function App() {
       {/* <h1>TodoList</h1>
       <TodoForm onSubmit={handleTodoFormSubmit} />
       <TodoList todos={todoList} onTodoClick={handleTodoList}/> */}
-
+      
+      <PostFiltersForm onSubmit={handleFiltersChange} />
       <PostList posts={postList} />
       <Pagination 
         pagination={pagination}
