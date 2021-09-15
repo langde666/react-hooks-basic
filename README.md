@@ -1,2 +1,2 @@
-# React Hook Basic
+# React Hooks Basic
 study, study more, study forever...
